@@ -1,0 +1,8 @@
+# Dependency directories
+node_modules/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Marp artifacts
+slides.html
