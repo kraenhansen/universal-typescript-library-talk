@@ -5,16 +5,10 @@
     "module": "node16",
     "moduleResolution": "node16",
     "outDir": "../../dist/node",
-    "lib": [
-      "ES2022"
-    ],
+    "lib": ["ES2022"],
     "noResolve": false,
-    "types": [
-      "node"
-    ]
+    "types": ["node"]
   },
   "include": ["."],
-  "references": [
-    { "path": "../common" }
-  ]
+  "references": [{ "path": "../common" }]
 }

@@ -5,17 +5,10 @@
     "module": "preserve",
     "moduleResolution": "bundler",
     "outDir": "../../dist/browser",
-    "lib": [
-      "ES2022",
-      "DOM"
-    ],
+    "lib": ["ES2022", "DOM"],
     "noResolve": true,
-    "types": [
-      "my-lib/common"
-    ]
+    "types": ["my-lib/common"]
   },
   "include": ["."],
-  "references": [
-    { "path": "../common" }
-  ]
+  "references": [{ "path": "../common" }]
 }
