@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "emitDeclarationOnly": true,
+    "types": ["node", "my-lib"],
+    "noResolve": false
+  },
+  "include": ["**/*.test.ts"],
+  "exclude": [],
+  "references": [
+    {
+      "path": "./tsconfig.json"
+    }
+  ]
+}

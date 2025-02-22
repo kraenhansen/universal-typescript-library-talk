@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/vite-react",
+  "compilerOptions": {
+    "customConditions": ["browser"]
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "./tsconfig.node.json" }
+  ]
+}

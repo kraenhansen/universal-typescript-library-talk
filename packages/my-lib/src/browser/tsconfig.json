@@ -1,0 +1,21 @@
+{
+  "extends": "@tsconfig/recommended",
+  "compilerOptions": {
+    "composite": true,
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "outDir": "../../dist/browser",
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
+    "noResolve": true,
+    "types": [
+      "my-lib/common"
+    ]
+  },
+  "include": ["."],
+  "references": [
+    { "path": "../common" }
+  ]
+}

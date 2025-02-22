@@ -1,0 +1,29 @@
+{
+  "name": "my-lib",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A universal package",
+  "exports": {
+    ".": {
+      "types": "./dist/common/index.d.ts",
+      "node": "./dist/node/index.js",
+      "browser": "./dist/browser/index.js"
+    },
+    "./common": {
+      "types": "./dist/common/index.d.ts",
+      "default": "./dist/common/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "test": "tsx --test"
+  },
+  "devDependencies": {
+    "@tsconfig/node-lts": "^22.0.1",
+    "@tsconfig/recommended": "^1.0.8",
+    "@types/node": "^20.6.0",
+    "tsx": "^4.19.3"
+  }
+}
