@@ -8,7 +8,7 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "marp -p slides.md"
+    "start": "marp -p slides.md --bespoke.progress"
   },
   "license": "ISC",
   "dependencies": {

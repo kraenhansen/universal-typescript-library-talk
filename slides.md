@@ -2,6 +2,7 @@
 marp: true
 theme: default
 class: invert
+footer: `@kraenhansen.dk` on 🦋
 ---
 
 <style>
@@ -15,14 +16,18 @@ class: invert
   --bgColor-default: var(--slate-blue);
 }
 
-h1 {
+h1, h2, h3, h4 {
   font-family: "Source Serif 4", serif;
   color: white;
 }
 
-p {
+p, li {
   font-family: "Lexend Deca", sans-serif;
   font-weight: lighter;
+}
+
+a {
+  color: var(--spring-green);
 }
 </style>
 
@@ -32,10 +37,13 @@ Kræn Hansen
 
 <!--
 Not a library developer?
-- Many of your solutions could be generalized
+- Many of your solutions could be generalized and published.
+- You're evaluating libraries, which might use some of these patterns.
 -->
 
 ---
+
+<!-- paginate: true -->
 
 # Why Universal?
 
@@ -57,32 +65,45 @@ Maintaining the Atlas Device SDK
 
 `@kraenhansen.dk` on Bluesky 🦋
 
+<!-- _footer: "" -->
+
 ---
 
 # What is a runtime?
 
-Sometimes called "platform" or "environment".
+Sometimes called "platform" or "environment", entails a JavaScript engine:
 
-Entails a JavaScript engine, such as
+- V8
+- JavaScript Core
+- Hermes
+- SpiderMonkey
+- Chakra
+- ...
+
+<!--
 - V8 *(used by Chrome, Node.js, Electron, ...)*
 - JavaScript Core *(used by Safari, WebKit browsers and some React Native apps)*
 - Hermes *(used by most React Native apps)*
 - SpiderMonkey *(used by Firefox)*
 - Chakra *(used by Internet Explorer)*
-- ...
+-->
 
 ---
 
-# Runtime specific APIs
+# Runtime specific globals
 
-## Globals
 - `window`
 - `navigator`
-- `process`
 - `fetch`
 - `console.log`
+- `process`
+- `Bun.file("foo.txt")`
+- `Deno.readFileSync("hello.txt")`
 
-## Packages
+---
+
+# Runtime specific packages
+
 - `import fs from "node:fs"`
 - `import { Platform } from "react-native"`
 
@@ -95,7 +116,7 @@ Entails a JavaScript engine, such as
   - `isomorphic-ws`
 - Helps building
   - Testable apps
-  - Reusable apps (across React Native, Web, Electron, Server-side Node.js)
+  - Reusable apps (across Web, Server-side Node.js, Electron, React Native)
 - Simple when not depending runtime APIs or other runtime specific packages.
 
 ---
@@ -120,13 +141,41 @@ export function greet() {
 
 ---
 
-# ~~Runtime checks~~ (don't do it!) 🛑
+# Don't do "runtime checks" 💔 (1/3)
 
 ```typescript
 if (typeof window !== "undefined") {
   // Probably in a browser
 }
 ```
+
+<pre style="visibility: hidden;">
+💥
+</pre>
+
+---
+
+# Don't do "runtime checks" 💔 (2/3)
+
+```typescript
+if (process.release.name === "node") {
+  // Probably in Node.js
+}
+```
+
+---
+
+# Don't do "runtime checks" 💔 (2/3)
+
+```typescript
+if (process.release.name === "node") {
+  // Probably in Node.js
+}
+```
+
+---
+
+# Don't do "runtime checks" 💔 (2/3)
 
 ```typescript
 if (typeof process !== "undefined" &&
@@ -144,23 +193,82 @@ const fetch = nodeRequire("node-fetch");
 
 ---
 
-# Conditional exports 💙
+# Declaring conditional exports 💙
 
 ```json
 {
   // ...
   "exports": {
     ".": {
+      "types": "./dist/common/index.d.ts",
       "node": "./dist/node/index.js",
-      "browser": "./dist/browser/index.js",
-      "types": "./dist/common/index.d.ts"
+      "browser": "./dist/browser/index.js"
     },
   }
   // ...
 }
 ```
 
-See https://nodejs.org/api/packages.html#conditional-exports
+<!-- See https://nodejs.org/api/packages.html#conditional-exports -->
+
+---
+
+# Consuming conditional exports (from TypeScript)
+
+```json
+// tsconfig.json
+{
+  "compilerOptions": {
+    "customConditions": ["browser"]
+  }
+}
+```
+
+<!-- See https://www.typescriptlang.org/tsconfig/#customConditions -->
+
+Can be used to declare experimental APIs.
+
+---
+
+# Consuming conditional exports (from Node.js)
+
+```bash
+node --conditions=development index.js
+```
+
+Defaults to `"node", "node-addons", "default", "import", "require"`
+
+<!-- See https://nodejs.org/api/packages.html#resolving-user-conditions -->
+
+---
+
+# Bundling conditional exports (from Vite / Rolldown)
+
+```javascript
+// vite.config.ts
+export default defineConfig({
+  resolve: {
+    conditions: ["browser"]
+  }
+})
+```
+
+<!-- See https://v3.vitejs.dev/config/shared-options.html#resolve-conditions -->
+
+---
+
+# Bundling conditional exports (from Rspack)
+
+```javascript
+// rspack.config.mjs
+export default {
+  resolve: {
+    conditionNames: ['browser'],
+  },
+};
+```
+
+<!-- See https://rspack.dev/config/resolve#resolveconditionnames -->
 
 ---
 
@@ -183,7 +291,7 @@ import * from "my-lib/common";
 }
 ```
 
-See https://nodejs.org/api/packages.html#subpath-exports
+<!-- See https://nodejs.org/api/packages.html#subpath-exports -->
 
 ---
 
@@ -198,19 +306,18 @@ See https://nodejs.org/api/packages.html#subpath-exports
 
 ---
 
-# Root `tsconfig-base.json`
-
-- Default compiler options
-- `"types": []`
-- `"lib": [ "es2022" ]`
-- `"noResolve": true`
-
----
-
 # Root `tsconfig.json`
 
-- `files: []` as it has no files of its own
-- `references` to the platform specific projects
+```json
+{
+  "files": [],
+  "references": [
+    { "path": "./src/browser" },
+    { "path": "./src/node" },
+    { "path": "./src/common/tsconfig.tests.json" }
+  ]
+}
+```
 
 ---
 
@@ -219,7 +326,21 @@ See https://nodejs.org/api/packages.html#subpath-exports
 - For common, runtime independent code
 - `"types": []`
 - `"lib": ["ES2022"]`
+- `"noResolve": true`
 - `"include": ["."]`
+- `"exclude": ["**/*.test.ts"]`
+
+---
+
+# `src/common/tsconfig.tests.json`
+
+- For unit tests of common, runtime independent code
+- `"types": ["node"]`
+- `"lib": ["ES2022"]`
+- `"noResolve": false`
+- `"include": ["**/*.test.ts"]`
+- `"exclude": []`
+- `"references": [{ "path": "." }]`
 
 ---
 
@@ -230,6 +351,7 @@ See https://nodejs.org/api/packages.html#subpath-exports
 - `"types": []`
 - `"lib": ["ES2022", "DOM"]`
 - `"include": ["."]`
+- `"references": [{ "path": "../common" }]`
 
 ---
 
@@ -240,3 +362,4 @@ See https://nodejs.org/api/packages.html#subpath-exports
 - `"types": ["node"]`
 - `"lib": ["ES2022"]`
 - `"include": ["."]`
+- `"references": [{ "path": "../common" }]`
