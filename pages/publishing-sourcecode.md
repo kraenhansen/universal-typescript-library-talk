@@ -1,0 +1,1 @@
+# Should I publish TypeScript sourcecode?

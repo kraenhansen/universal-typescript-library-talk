@@ -8,14 +8,33 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "marp -p slides.md --bespoke.progress"
+    "start": "slidev --open",
+    "format": "slidev format"
   },
   "license": "ISC",
-  "dependencies": {
-    "@marp-team/marp-cli": "^4.1.2"
-  },
   "devDependencies": {
-    "typescript": "^5.7.3",
-    "resolution-explorer": "^0.4.0"
+    "@rspack/cli": "^1.2.5",
+    "@slidev/cli": "^51.3.0",
+    "@slidev/theme-seriph": "^0.25.0",
+    "prettier": "^3.5.2",
+    "prettier-plugin-slidev": "^1.0.5",
+    "resolution-explorer": "^0.4.0",
+    "typescript": "^5.7.3"
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": [
+          "slides.md",
+          "pages/*.md"
+        ],
+        "options": {
+          "parser": "slidev",
+          "plugins": [
+            "prettier-plugin-slidev"
+          ]
+        }
+      }
+    ]
   }
 }

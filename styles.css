@@ -1,0 +1,25 @@
+:root {
+  --spring-green: #00ed64;
+  --forest-green: #00684a;
+  --evergreen: #023430;
+  --slate-blue: #001e2b;
+  --prism-background: var(--slate-blue);
+}
+
+html.dark {
+  --slidev-code-background: rgba(0, 0, 0, 0.4);
+}
+
+.slidev-layout {
+  background: var(--slate-blue);
+  font-family: "Lexend Deca", sans-serif;
+
+  h1, h2, h3, h4 {
+    font-family: "Source Serif 4", serif;
+    color: white;
+  }
+
+  p, li {
+    font-weight: lighter;
+  }
+}
