@@ -1,7 +1,7 @@
-export const greeting = {
-  where: "somewhere",
-};
+export class Greeter {
+  static where = "somewhere";
 
-export function greet() {
-  return `Hello from ${greeting.where}!`;
+  greet(): string {
+    return `Hello from ${Greeter.where}!`;
+  }
 }

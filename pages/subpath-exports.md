@@ -1,20 +1,33 @@
+---
+layout: section
+transition: null
+---
+
+# Subpath exports 💙
+
+Declaring multiple entrypoints into your package.
+
+
+```typescript
+import { somethingRuntimeIndependent } from "my-lib/common";
+```
+
+<!--
+Before subpath exports, importing from a file inside a package could easily break.
+-->
+
+---
+
 # Subpath exports 💙
 
 ```typescript
-import * from "my-lib/common";
+import { somethingRuntimeIndependent } from "my-lib/common";
 ```
 
-```json
-{
-  // ...
-  "exports": {
-    "./common": {
-      "types": "./dist/common/index.d.ts",
-      "default": "./dist/common/index.js"
-    }
-  }
-  // ...
-}
-```
+<<< @/packages/my-lib/package.json {7|13} json
 
-<!-- See https://nodejs.org/api/packages.html#subpath-exports -->
+<!--
+Useful to 
+
+See https://nodejs.org/api/packages.html#subpath-exports
+-->

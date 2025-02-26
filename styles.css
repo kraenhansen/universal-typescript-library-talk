@@ -20,6 +20,11 @@ html.dark {
   }
 
   p, li {
-    font-weight: lighter;
+    font-weight: 200;
   }
+}
+
+footer {
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: lighter;
 }

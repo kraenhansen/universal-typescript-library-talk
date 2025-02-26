@@ -10,11 +10,10 @@
       "node": "./dist/node/index.js",
       "browser": "./dist/browser/index.js"
     },
-    "./common": {
-      "types": "./dist/common/index.d.ts",
-      "default": "./dist/common/index.js"
-    }
+    "./common": "./dist/common/index.js",
+    "./experimental-yell": "./dist/common/experimental-yell.js"
   },
+  "sideEffects": ["./dist/common/experimental-yell.js"],
   "scripts": {
     "build": "tsc --build",
     "clean": "tsc --build --clean",

@@ -1,0 +1,15 @@
+{
+  "extends": "@tsconfig/recommended",
+  "compilerOptions": {
+    "composite": true,
+    "module": "node16",
+    "moduleResolution": "node16",
+    "outDir": "./dist/common",
+    "rootDir": "./src/common",
+    "lib": ["ES2022"],
+    "types": [],
+    "noResolve": true
+  },
+  "include": ["src/common"],
+  "exclude": ["src/common/**/*.test.ts"]
+}

@@ -1,16 +1,17 @@
-import { greet } from "my-lib";
+import { Greeter } from "my-lib";
+// import "my-lib/experimental-yell";
 
-const greeting = greet();
+const greeter = new Greeter();
 
-import './App.css'
+import "./App.css";
 
 function App() {
   return (
     <>
       <h1>My Awesome App</h1>
-      <h2>{greeting}</h2>
+      <h2>{greeter.greet()}</h2>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

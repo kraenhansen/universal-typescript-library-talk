@@ -1,0 +1,14 @@
+{
+  "extends": "@tsconfig/node-lts",
+  "compilerOptions": {
+    "composite": true,
+    "module": "node16",
+    "moduleResolution": "node16",
+    "outDir": "./dist/node",
+    "rootDir": "./src/node",
+    "lib": ["ES2022"],
+    "types": ["node"]
+  },
+  "include": ["src/node"],
+  "references": [{ "path": "./tsconfig.common.json" }]
+}

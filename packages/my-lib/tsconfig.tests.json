@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.common.json",
+  "compilerOptions": {
+    "emitDeclarationOnly": true,
+    "types": ["node"],
+    "noResolve": false
+  },
+  "include": ["src/common/**/*.test.ts"],
+  "exclude": [],
+  "references": [{ "path": "./tsconfig.common.json" }]
+}

@@ -1,4 +1,4 @@
-# Don't do "runtime checks" 💔
+# Don't do "runtime checks" 😢
 
 <v-clicks at="0">
 
@@ -26,14 +26,24 @@ if (typeof window !== "undefined") {
 }
 ```
 
-💥 Some dependency brought a global polyfill of some `window` API
+- 💥 Some dependency brought a global polyfill of some `window` API
+- They're really hard to test, because they break on "the other" platform
+
 </v-clicks>
 
-<!-- They're really hard to test, because they break on "the other" platform -->
+<!--
+One way you might do this, is through an pattern typically referred to as "runtime checks".
+
+Can someone tell me why this code is a bad idea?
+
+[click] On Node.js this is a reference error, because the window global is not defined.
+[click] Let's try to fix that. The RHS of the `typeof` operator is allowed to be completely missing from the scope. Can someone tell my who this can go wrong?
+[click] Some misbehaving dependency might have patched the global with a polyfill. And ultimately these are really hard to test.
+-->
 
 ---
 
-# Don't do "runtime checks" 💔
+# Don't do "runtime checks" 😢
 
 <v-clicks at="0">
 ```typescript
@@ -55,3 +65,10 @@ if (isNode) {
 }
 ```
 </v-clicks>
+
+<!--
+Even if you manage to define some constant, the "isNode" constant here.
+Importing platform specific code from common code has issues. Does anyone have an idea on how this can go wrong?
+[click] require calls mess with bundlers.
+[click] you can do ugly workarounds, but this doesn't even work on Rspack, because it's smarter.
+-->

@@ -1,5 +1,5 @@
-import { greeting } from "my-lib/common";
+import { Greeter } from "../common/index.js";
 
-greeting.where = "Node.js " + process.versions.node;
+Greeter.where = "Node.js " + process.versions.node;
 
-export * from "my-lib/common";
+export * from "../common/index.js";

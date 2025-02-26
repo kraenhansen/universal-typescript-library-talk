@@ -6,3 +6,5 @@ node_modules/
 
 # Artifacts
 dist/
+packages/my-lib/src/browser/index.ts
+.DS_Store

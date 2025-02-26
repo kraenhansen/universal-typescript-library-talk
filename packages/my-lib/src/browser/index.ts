@@ -1,5 +1,5 @@
-import { greeting } from "my-lib/common";
+import { Greeter } from "../common/index.js";
 
-greeting.where = "browser " + navigator.userAgent;
+Greeter.where = "browser " + navigator.userAgent;
 
-export * from "my-lib/common";
+export * from "../common/index.js";

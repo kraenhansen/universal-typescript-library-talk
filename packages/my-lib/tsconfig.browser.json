@@ -1,0 +1,14 @@
+{
+  "extends": "@tsconfig/recommended",
+  "compilerOptions": {
+    "composite": true,
+    "module": "node16",
+    "moduleResolution": "node16",
+    "outDir": "./dist/browser",
+    "rootDir": "./src/browser",
+    "lib": ["ES2022", "DOM"],
+    "types": []
+  },
+  "include": ["src/browser"],
+  "references": [{ "path": "./tsconfig.common.json" }]
+}
