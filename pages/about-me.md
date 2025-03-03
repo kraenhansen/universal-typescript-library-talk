@@ -14,7 +14,7 @@ Senior Software Engineer @ MongoDB
 - Maintaining the Atlas Device SDK<br>(formerly Realm JS)
   - 95% TypeScript and some C++
   - Supports Node, React Native (and Web)
-- Father x3 👧👧👶
+- Father x3 👧👧👶 in Roskilde 🇩🇰
 - Open source enthusiast, interested in:
   - Universal code
   - React Native
@@ -28,7 +28,7 @@ First, a bit about myself.
 
 [click] I help build developer tools at MongoDB, primarily Compass, an Electron based GUI to query and administer a database cluster.
 [click] I help maintain the Atlas Device SDK for TypeScript (formerly Realm JS). Lots of TypeScript, a bit of C++, supports multiple runtime environments, operating systems and JavaScript engines.
-[click] Outside of work, I'm a proud father of two 6yo twin girls and a 2yo girl.
+[click] Outside of work, I'm a proud father of two 6yos and a 2yo toddler - all girls.
 [click] Besides my work at MongoDB (where I work ~ 30 hours per week) and family I like to build in the public.
 [click] Write to me on Bluesky - any feedback is appreciated.
 

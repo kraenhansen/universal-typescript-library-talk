@@ -1,4 +1,28 @@
-# Don't do "runtime checks" 😢
+# Single entrypoint with runtime checks? 🤔
+
+```mermaid { 'themeVariables': { 'fontFamily': 'Lexend Deca', 'fontSize': '28px', 'primaryColor': '#BB2528', 'primaryTextColor': '#fff', 'primaryBorderColor': '#00ed64', 'lineColor': '#00ed64', 'secondaryColor': '#00684a', 'tertiaryColor': '#023430', 'clusterBkg': '#001e2b', 'edgeLabelBackground': '#001e2b', 'nodeBorder': '#00ed64' } }
+flowchart LR
+  linkStyle default stroke-width:4px;
+
+  subgraph exports[Exports]
+    main-export(#quot;main#quot; field)
+  end
+
+  main-export --> common-source
+
+  subgraph projects[JavaScript]
+    browser-source(./dist/browser/index.js)
+    node-source(./dist/node/index.js)
+    common-source(./dist/common/index.js)
+  end
+
+  common-source -- imports --> node-source
+  common-source -- imports --> browser-source
+```
+
+---
+
+# Runtime checks 😬
 
 <v-clicks at="0">
 
@@ -43,7 +67,7 @@ Can someone tell me why this code is a bad idea?
 
 ---
 
-# Don't do "runtime checks" 😢
+# Runtime checks 😬
 
 <v-clicks at="0">
 ```typescript

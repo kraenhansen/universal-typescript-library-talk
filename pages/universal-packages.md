@@ -1,9 +1,8 @@
 # Universal package
 
-Write once, run everywhere.
-
 <v-clicks>
 
+- Write once, run everywhere.
 - AKA an isomorphic package:
   - `isomorphic-fetch`
   - `isomorphic-ws`
@@ -16,6 +15,7 @@ Write once, run everywhere.
 <!--
 Enough about me - this is a talk about universal typescript libraries.
 But - what is a universal library / package?
+[click] Write once, run everywhere.
 [click] These are sometimes referred to as "isomorphic".
 [click] They can help you build reusable and testable apps. Reusable across different runtime environments and testable because your app can target one environment and run tests on another.
 -->

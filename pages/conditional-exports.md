@@ -12,10 +12,40 @@ https://nodejs.org/api/packages.html#conditional-exports
 <!--
 Instead, you want to turn the import around and have runtime specific entrypoints which import and use common code.
 
-Instead of single shared entrypoint, you want to statically declare the files you export, based on conditions of the runtime environment.
-
 Show of hands, who already knows about conditional exports?
+-->
 
+---
+layout: section
+transition: null
+---
+
+# Conditional exports 💙
+
+```mermaid { 'themeVariables': { 'fontFamily': 'Lexend Deca', 'fontSize': '28px', 'primaryColor': '#BB2528', 'primaryTextColor': '#fff', 'primaryBorderColor': '#00ed64', 'lineColor': '#00ed64', 'secondaryColor': '#00684a', 'tertiaryColor': '#023430', 'clusterBkg': '#001e2b', 'edgeLabelBackground': '#001e2b', 'nodeBorder': '#00ed64' } }
+flowchart LR
+  linkStyle default stroke-width:4px;
+
+  subgraph exports[Exports]
+    browser-export(#quot;browser#quot; condition)
+    node-export(#quot;node#quot; condition)
+  end
+
+  browser-export --> browser-source
+  node-export --> node-source
+
+  subgraph projects[JavaScript]
+    browser-source(./dist/browser/index.js)
+    node-source(./dist/node/index.js)
+    common-source(./dist/common/index.js)
+  end
+
+  browser-source -- imports --> common-source
+  node-source -- imports --> common-source
+```
+
+<!--
+Instead of single shared entrypoint, you want to statically declare the files you export, based on conditions of the runtime environment.
 -->
 
 ---

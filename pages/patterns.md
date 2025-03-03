@@ -3,25 +3,35 @@ layout: section
 transition: null
 ---
 
-# Pattern 1
+# Pattern A
 
-Injecting runtime specifics
+Runtime-specific injection
 
 ---
 src: ./runtime-specific-injection-pattern.md
 ---
 
-# Pattern 2
+---
+layout: section
+transition: null
+---
 
-Stripping internal types
+# Pattern B
+
+Stripping internal APIs
 
 ---
 src: ./strip-internals-pattern.md
 ---
 
-# Pattern 3
+---
+layout: section
+transition: null
+---
 
-Module augmentation via subpath (for experimental APIs)
+# Pattern C
+
+Module augmentation through subpath export
 
 ---
 src: ./module-augmentation-via-subpath-pattern.md

@@ -5,6 +5,8 @@ transition: null
 
 # Next steps
 
+Where to go from here?
+
 ---
 layout: cover
 ---

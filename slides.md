@@ -18,12 +18,16 @@ Kræn Hansen
 Welcome to my talk about
 "Building a Universal TypeScript Library".
 
-I'm going to talk about some patterns for building libraries meant to run across many environments (browsers, node.js, react-native, etc.)
+I'm going to talk about some patterns for building libraries
+meant to run across many environments (browsers, node.js, react-native, etc.)
+
+Show of hands - do you consider yourself an app developer?
+How about a library developer?
 
 If you're not a library developer?
-- Maybe you are?
-Your solutions could be generalized and published.
+- Maybe you are? Your solutions could be generalized and published as a library.
 - You're evaluating libraries, which might use some of these patterns.
+- These patterns also apply when working in a mono-repo.
 -->
 
 ---

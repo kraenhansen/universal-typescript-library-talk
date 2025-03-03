@@ -1,4 +1,4 @@
-# Internal APIs
+# Stripping internal APIs
 
 `src/common/internal.ts`
 
