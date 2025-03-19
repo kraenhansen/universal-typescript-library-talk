@@ -146,5 +146,7 @@ export default {
 
 From Metro (for React Native)
 
-- Still experimental (enabled via `unstable_enablePackageExports`).
-- Workaround using a `"react-native"` top-level "main field" (or a `"main"` combined with [platform specific file extensions](https://reactnative.dev/docs/platform-specific-code)).
+- Used to be experimental (enabled via `unstable_enablePackageExports`)
+- Enabled by default as of React Native 0.79.0 🎉
+
+<!-- See https://metrobundler.dev/docs/package-exports/ -->
