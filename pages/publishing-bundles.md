@@ -9,3 +9,7 @@
 - Remember, your users will likely bundle themselves.
 
 </v-clicks>
+
+<!--
+This is a bit more controversial.
+-->

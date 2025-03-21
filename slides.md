@@ -12,7 +12,12 @@ fonts:
 
 # Building a<br>Universal TypeScript Library
 
-Kræn Hansen
+<div class="flex flex-col items-center gap-5">
+  <p>Kræn Hansen</p>
+  <div class="flex items-center gap-5">
+    <img src="./mongodb-logo.svg" style="height:2rem;" />
+  </div>
+</div>
 
 <!--
 Welcome to my talk about

@@ -1,4 +1,4 @@
-# Should I export TypeScript source-code from my library?
+# Should I export TypeScript source-code?
 
 Why would you do that?
 

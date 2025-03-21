@@ -15,7 +15,7 @@
 <!--
 Enough about me - this is a talk about universal typescript libraries.
 But - what is a universal library / package?
-[click] Write once, run everywhere.
+[click] Enables "Write once, run everywhere." apps.
 [click] These are sometimes referred to as "isomorphic".
 [click] They can help you build reusable and testable apps. Reusable across different runtime environments and testable because your app can target one environment and run tests on another.
 -->
