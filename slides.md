@@ -89,6 +89,19 @@ layout: section
 
 # 👋 Thanks for your time 💙
 
-Slides & code https://github.com/kraenhansen/universal-typescript-library-talk
-
-I accept [sponsorships on GitHub](https://github.com/sponsors/kraenhansen) 💸
+<div class="flex items-center gap-5">
+  <div>
+    <img src="./joindin-qr.png">
+    <p>joind.in/talk/f6776</p>
+  </div>
+  <div>
+    <p>
+      Slides & code on:
+      <br />
+      https://github.com/kraenhansen/universal-typescript-library-talk
+    </p>
+    <p>
+      I accept <a href="https://github.com/sponsors/kraenhansen">sponsorships on GitHub</a> 💸
+    </p>
+  </div>
+</div>
